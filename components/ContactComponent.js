@@ -1,45 +1,35 @@
-import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
-import { Card } from 'react-native-elements';
-import { CAMPSITES } from '../shared/campsites';
-import { PROMOTIONS } from '../shared/promotions';
-import { PARTNERS } from '../shared/partners';
-
+import React, { Component } from "react";
+import { View, Text, ScrollView } from "react-native";
+import { Card } from "react-native-elements";
+import { CAMPSITES } from "../shared/campsites";
+import { PROMOTIONS } from "../shared/promotions";
+import { PARTNERS } from "../shared/partners";
 
 class Contact extends Component {
+  
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            campsites: CAMPSITES
-        };
-    }
+  static navigationOptions = {
+    title: "Contact",
+  };
 
-    static navigationOptions = {
-        title: 'Contact'
-    }
+  render() {
 
-    render() {
-        const { navigate } = this.props.navigation;
-        const renderDirectoryItem = ({item}) => {
-            return (
-                <ListItem
-                    title={item.name}
-                    subtitle={item.description}
-                    //onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })}
-                    leftAvatar={{ source: require('./images/react-lake.jpg')}}
-                />
-            );
-        };
+    return (
+      <ScrollView>
+        <Card
+          title="Contact Information"
+          wrapperstyle={{ margin: 20 }}
+        >
+          <Text>1 Nucamp Way</Text>
+          <Text>Seattle, WA 98001</Text>
+          <Text style={{marginBottom: 10}}>U.S.A.</Text>
 
-        
-
-        return (
-            <ScrollView>
-
-            </ScrollView>
-        );
-    }
+          <Text>Phone: 1-206-555-1234</Text>
+          <Text>Email: campsites@nucamp.co</Text>
+        </Card>
+      </ScrollView>
+    );
+  }
 }
 
 export default Contact;
