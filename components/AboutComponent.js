@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, ScrollView, FlatList } from "react-native";
 import { Card, ListItem } from "react-native-elements";
-import { CAMPSITES } from "../shared/campsites";
-import { PROMOTIONS } from "../shared/promotions";
 import { PARTNERS } from "../shared/partners";
 
 const Mission = () => {
@@ -33,7 +31,6 @@ class About extends Component {
   };
 
   render() {
-    const { navigate } = this.props.navigation;
     const renderPartner = ({ item }) => {
       return (
         <ListItem
