@@ -7,7 +7,7 @@ class Contact extends Component {
   
 
   static navigationOptions = {
-    title: "Contact",
+    title: "Contact Us",
   };
 
   render() {
