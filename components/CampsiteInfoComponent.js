@@ -6,7 +6,7 @@ import {
   FlatList,
   Modal,
   Button,
-  StyleSheet, Alert, PanResponder
+  StyleSheet, Alert, PanResponder, Share
 } from "react-native";
 import { Card, Icon, Rating, Input } from "react-native-elements";
 import { connect } from "react-redux";
@@ -71,6 +71,16 @@ function RenderCampsite(props) {
           return true;
       }
   });
+
+  const shareCampsite = (title, message, url) => {
+    Share.share({
+        title: title,
+        message: `${title}: ${message} ${url}`,
+        url: url
+    },{
+        dialogTitle: 'Share ' + title
+    });
+};
   if (campsite) {
     return (
         <Animatable.View
@@ -102,6 +112,16 @@ function RenderCampsite(props) {
               reverse
               onPress={() => props.onShowModal()}
             />
+
+            <Icon
+              name={'share'}
+              type='font-awesome'
+              color='#5637DD'
+              raised
+              reverse
+              onPress={() => shareCampsite(campsite.name, campsite.description, baseUrl + campsite.image)} 
+            />
+
           </View>
         </Card>
       </Animatable.View>
